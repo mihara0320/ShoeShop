@@ -1,1 +1,1 @@
-web: gunicorn shoe_shop.wsgi --log-file -
+web: gunicorn config.wsgi --log-file -
