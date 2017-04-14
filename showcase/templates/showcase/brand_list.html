@@ -1,0 +1,17 @@
+{% extends "showcase/menu.html" %}
+
+{% block show_content %}
+<h1>This is brand list</h1>
+
+{% for item in brand_list %}
+
+    <div style="padding-top: 1%;">
+        <form action= "" method="POST" style="margin: auto; padding: 0.5%;"> {% csrf_token %}
+            <input type="submit" name = "{{ item }}" value = "{{ item }} " />
+        </form>
+    </div>
+
+
+{% endfor %}
+
+{% endblock%}

@@ -1,0 +1,21 @@
+{% extends "showcase/menu.html" %}
+
+{% block show_content %}
+<h1>This is showcase</h1>
+<div style ="padding: auto; margin: auto; ">
+    <div class="row">
+        {% for item in item_list %}
+            {% if item %}
+                <div class="col-xs-4" style ="padding: auto; margin: auto; ">
+                    <div id = "item">
+                        <h3>{{ item.name }}</h3>
+                        <img src="{{ item.image.url }}" height="50%" width="50%">
+                        <h3>{{ item.price }} € </h3>
+                        <a href="/showcase/{{item.id}}" class="btn btn-default" > Details </a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}

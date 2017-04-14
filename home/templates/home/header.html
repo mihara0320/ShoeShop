@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Shoe Shop</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        {% load staticfiles %}
+	    <script type="text/javascript" src = "{% static 'home/js/bootstrap.min.js/' %}"></script>
+    </head>
+
+     <body class = "body" style = "font-family: 'Raleway';font-size: 22px;" >
+         <div style = "background-color: #333;">
+             <nav class="navbar navbar-inverse" style="background-color: #333; margin-bottom:0px !important; border: 0;">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href='/'>
+                            <img src="{% static 'home/assets/images/shoes.png' %}"
+                            style='max-height:25px;' alt="Brand_icon" >
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li style = "margin-top: 5px;"><a href="/showcase/new_arrival/">NEW ARRIVAL</a></li>
+                        <li style = "margin-top: 5px;"><a href="/showcase/">PRODUCTS</a></li>
+    					<li style = "margin-top: 5px;"><a href="/#SHOP_INFO">SHOP INFO</a></li>
+                        <li style = "margin-top: 5px;"><a href="/#CONTACT">CONTACT</a></li>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li>
+                              <a href="/cart">CART<span class="glyphicon glyphicon-shopping-cart"></span></a>
+                          </li>
+                          <li>
+                              <a href="/user/login">LOGIN<span class="glyphicon glyphicon-user"></span></a>
+                          </li>
+                          <li>
+                              <a href="/user/logout">LOGOUT<span class="glyphicon glyphicon-user"></span></a>
+                          </li>
+                          <li>
+                              <a href="/user/register">SIGNUP<span class="glyphicon glyphicon-hand-up"></span></a>
+                          </li>
+                          <li style = "margin: 10px;">
+                                  <h4 style = "color: white;">
+                                      {% if request.user.is_authenticated %}
+                                          Welcome {{ request.user.username }}
+                                      {% else %}
+                                          Welcome Guest
+                                      {% endif %}
+                                  </h4>
+                          </li>
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+         <div>
+                {% block main_content %}
+                {% endblock %}
+         </div>
+
+</html>

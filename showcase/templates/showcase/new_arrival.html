@@ -1,0 +1,15 @@
+{% extends "showcase/menu.html" %}
+
+{% block show_content %}
+<h1>This is new arrival</h1>
+    <div class="row">
+        {% for item in new_arrivals %}
+            <div class="col-md-4">
+                <h3>{{ item.name }}</h3>
+                <img src="{{ item.image.url }}" height="50%" width="50%">
+                <h3>{{ item.price }} € </h3>
+                <a href="/showcase/{{item.id}}" class="btn btn-default" > Details </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock%}

@@ -1,0 +1,15 @@
+crypto==1.4.1
+defusedxml==0.5.0
+Django==1.10.5
+django-allauth==0.31.0
+gunicorn==19.7.1
+Naked==0.1.31
+oauthlib==2.0.1
+olefile==0.44
+Pillow==4.0.0
+python3-openid==3.1.0
+PyYAML==3.12
+requests==2.13.0
+requests-oauthlib==0.8.0
+shellescape==3.4.1
+whitenoise==3.3.0

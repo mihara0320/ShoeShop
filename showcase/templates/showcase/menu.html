@@ -1,0 +1,49 @@
+{% extends "home/header.html" %}
+
+{% block main_content %}
+<style>
+.navbar-fixed-left {
+    width: 170px;
+    position: fixed;
+    border-radius: 0;
+    border: none;
+    height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none;  /* Cancel default li float: left */
+    width: 165px;
+    /*width: 10%;*/
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 140px;
+}
+</style>
+
+<div class="navbar navbar-inverse navbar-fixed-left">
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'showcase:brand_list' %}">BRAND LIST</a></li>
+        <li><a href="{% url 'showcase:index' %}?category=boots">BOOTS</a></li>
+        <li><a href="{% url 'showcase:index' %}?category=shoes">SHOES</a></li>
+
+    </ul>
+
+</div>
+
+<div class="container">
+  <div class="row">
+
+      {% block show_content %}
+      {% endblock %}
+
+  </div>
+</div>
+
+{% endblock %}
