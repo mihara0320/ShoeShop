@@ -37,18 +37,22 @@
                         <li style = "margin-top: 5px;"><a href="/#CONTACT">CONTACT</a></li>
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
-                          <li>
-                              <a href="/cart">CART<span class="glyphicon glyphicon-shopping-cart"></span></a>
-                          </li>
-                          <li>
-                              <a href="/user/login">LOGIN<span class="glyphicon glyphicon-user"></span></a>
-                          </li>
-                          <li>
-                              <a href="/user/logout">LOGOUT<span class="glyphicon glyphicon-user"></span></a>
-                          </li>
-                          <li>
-                              <a href="/user/register">SIGNUP<span class="glyphicon glyphicon-hand-up"></span></a>
-                          </li>
+
+                          {% if not request.user.is_authenticated %}
+                              <li>
+                                  <a href="/user/login">LOGIN<span class="glyphicon glyphicon-user"></span></a>
+                              </li>
+                              <li>
+                                  <a href="/user/register">SIGNUP<span class="glyphicon glyphicon-hand-up"></span></a>
+                              </li>
+                          {% else %}
+                              <li>
+                                  <a href="/user/logout">LOGOUT<span class="glyphicon glyphicon-user"></span></a>
+                              </li>
+                              <li>
+                                  <a href="/cart">CART<span class="glyphicon glyphicon-shopping-cart"></span></a>
+                              </li>
+                          {% endif %}
                           <li style = "margin: 10px;">
                                   <h4 style = "color: white;">
                                       {% if request.user.is_authenticated %}
