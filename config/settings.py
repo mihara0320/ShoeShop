@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import json
 
-with open('config/secret.json', 'r') as data_file:
+with open('config/himitsu.json', 'r') as data_file:
     json_data = json.load(data_file)
 
 
@@ -24,19 +24,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = json_data["SECRET_KEY"]
+SECRET_KEY = json_data["シークレットキー"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-email_config = json_data["email_config"]
+email_config = json_data["メール設定"]
 
-EMAIL_HOST = email_config["EMAIL_HOST"]
-EMAIL_HOST_USER = email_config["EMAIL_HOST_USER"]
-EMAIL_HOST_PASSWORD = email_config["EMAIL_HOST_PASSWORD"]
-EMAIL_PORT = email_config["EMAIL_PORT"]
+EMAIL_HOST = email_config["ホスト"]
+EMAIL_HOST_USER = email_config["ユーザー"]
+EMAIL_HOST_PASSWORD = email_config["パスワード"]
+EMAIL_PORT = email_config["ポート"]
 EMAIL_USE_TLS = True
 
 
