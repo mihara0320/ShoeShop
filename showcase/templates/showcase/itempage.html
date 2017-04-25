@@ -9,10 +9,12 @@
 
     <div class="row">
       <div class="col-md-6">
-
+         {% if request.user.is_authenticated %}
           <form action= "" method="POST"> {% csrf_token %}
               <input type="submit" value="Add to cart" class = "btn"/>
           </form>
+         {% endif %}
+
 
       <div class="col-md-6">{{ item.price }} EUR </div>
     </div>
