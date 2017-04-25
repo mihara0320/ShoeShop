@@ -2,10 +2,9 @@
 
 {% block main_content %}
 
-<div class = "col-xs-2 col-sm-2 col-md-2 col-lg-2"> 
     <style>
     .navbar-fixed-left {
-        width: 170px;
+        max-width: 170px;
         position: fixed;
         border-radius: 0;
         border: none;
@@ -28,8 +27,8 @@
         margin-left: 140px;
     }
     </style>
-
-    <div class="navbar navbar-inverse navbar-fixed-left">
+<div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-left col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <ul class="nav navbar-nav">
             <li><a href="{% url 'showcase:brand_list' %}">BRAND LIST</a></li>
             <li><a href="{% url 'showcase:index' %}?category=boots">BOOTS</a></li>
@@ -40,10 +39,10 @@
     </div>
 
 
-</div>
 <div class="container col-xs-10 col-sm-10 col-md-10 col-lg-10">
     {% block show_content %}
     {% endblock %}
+</div>
 </div>
 
 
