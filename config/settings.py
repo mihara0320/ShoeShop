@@ -31,12 +31,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-email_config = json_data["メール設定"]
+e = json_data["メール設定"]
+sec = json_data
 
-EMAIL_HOST = email_config["ホスト"]
-EMAIL_HOST_USER = email_config["ユーザー"]
-EMAIL_HOST_PASSWORD = email_config["パスワード"]
-EMAIL_PORT = email_config["ポート"]
+EMAIL_HOST = e["ホスト"]
+EMAIL_HOST_USER = sec["p0"] + "." + sec["j"] + sec["g"]
+EMAIL_HOST_PASSWORD = sec["b"] + sec["dt"] + sec["ttd"]
+EMAIL_PORT = e["ポート"]
 EMAIL_USE_TLS = True
 
 
