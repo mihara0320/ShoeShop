@@ -2,11 +2,11 @@
 
 {% block main_content %}
 
-<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="background-color: #333; font-family: 'Raleway';font-size: 22px; height: 100%">
-    <ul class="nav nav-pills nav-stacked">
-        <h3 style="color: white"><li><a href="{% url 'showcase:brand_list' %}">BRAND LIST</a></li></h3>
-        <h3 style="color: white"><li><a href="{% url 'showcase:index' %}?category=boots">BOOTS</a></li></h3>
-        <h3 style="color: white"><li><a href="{% url 'showcase:index' %}?category=shoes">SHOES</a></li></h3>
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="background-color: #333; font-family: 'Raleway';font-size: 22px; height: 100vh">
+    <ul class="nav nav-pills nav-stacked; height: 100vh">
+        <li><a href="{% url 'showcase:brand_list' %}" style="color: white">BRAND LIST</a></li>
+        <li><a href="{% url 'showcase:index' %}?category=boots" style="color: white">BOOTS</a></li>
+        <li><a href="{% url 'showcase:index' %}?category=shoes" style="color: white">SHOES</a></li>
     </ul>
 </div>
 
