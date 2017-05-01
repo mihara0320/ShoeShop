@@ -1,29 +1,45 @@
 {% extends "home/header.html" %}
 
 {% block main_content %}
-<h1>Cart</h1>
 
     <div class="row">
         {% if not message %}
             {% for item in items_in_cart %}
-                <div class="col-md-4">
-                    <h3>{{ item.name }}</h3>
-                    <img src="{{ item.image.url }}" height="50%" width="50%">
-                    <h3>{{ item.price }} € </h3>
-                    <a href="/showcase/{{item.id}}" class="btn btn-default" > Details </a>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="col-md-4">
+                        <h3>{{ item.name }}</h3>
+                        <img src="{{ item.image.url }}" height="50%" width="50%">
+                        <h3>{{ item.price }} € </h3>
+                        <a href="/showcase/{{item.id}}" class="btn btn-default" > Details </a>
+                    </div>
                 </div>
-            {% endfor %}
+                <div class="col-md-2"></div>
+            </div>
 
-            <h1>Total {{total_price}} EUR</h1>
-            <form method="POST">
-                {% csrf_token %}
-                <input type="submit" value="Check out" name= 'add_to_cart' id= "{{ item.name }}" class="btn btn-success"/>
-            </form>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-7"></div>
+                <div class="col-md-3">
+                    <h1>Total {{total_price}} EUR</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Check out" id= "{{ item.name }}" class="btn btn-success"/>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
         {% endif %}
 
         {% if message %}
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
             <h1>{{message}}</h1>
             <h1>Total {{total_price}} EUR</h1>
+        </div>
+        <div class="col-md-4"></div>
         {% endif %}
     </div>
 

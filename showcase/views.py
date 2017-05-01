@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View, ListView, DetailView
 from showcase.models import Item
 
@@ -79,7 +79,7 @@ class IndexView(ListView):
         else:
             result = Item.objects.all().order_by('name')
 
-        print(result)            
+        print(result)
         self.context.update({'item_list':result})
 
         return render(request, self.template, self.context)
@@ -100,13 +100,15 @@ class ItempageView(DetailView):
             cart = request.session["cart"]
             pk = kwargs.get('pk')
             cart.append(pk)
+
             request.session.modified = True
             print(cart)
 
             self.context.update({'cart':cart})
             self.object = self.get_object()
             context = super(ItempageView, self).get_context_data(**kwargs)
+            return redirect('cart:content')
 
-            return self.render_to_response(context=context)
+            # return self.render_to_response(context=context)
         else:
             print ('you need to login first ') # TODO

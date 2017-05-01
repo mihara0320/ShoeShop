@@ -51,15 +51,12 @@ class LoginFormView(View):
                 if user.is_active:
                     login(request, user)
                     print(request.session.get('cart'))
-                    # if request.session['cart']:
-                    #     print('if')
-                    # else:
-                    #     print('else')
                     cart = ()
                     request.session['cart'] = cart
                     print(request.session.get('cart'))
-
-            return redirect('home:index')
+                    return redirect('home:index')
+            else:
+                redirect(self.template)
 
         return render(request, self.template, {'form':form})
 

@@ -24,20 +24,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = json_data["シークレットキー"]
+SECRET_KEY = json_data["himutsu"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-e = json_data["メール設定"]
+e = json_data["merusettei"]
 sec = json_data
 
-EMAIL_HOST = e["ホスト"]
+EMAIL_HOST = e["hosuto"]
 EMAIL_HOST_USER = sec["p0"] + "." + sec["j"] + sec["g"]
 EMAIL_HOST_PASSWORD = sec["b"] + sec["dt"] + sec["ttd"]
-EMAIL_PORT = e["ポート"]
+EMAIL_PORT = e["poto"]
 EMAIL_USE_TLS = True
 
 

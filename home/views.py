@@ -13,7 +13,9 @@ class HomeView(View):
 
     def get(self, request):
         form = self.form_class(None)
-        return render(request, self.template, {'form':form})
+        context = {'form':form}
+
+        return render(request, self.template, context)
 
     def post(self, request):
         form = self.form_class(request.POST)
