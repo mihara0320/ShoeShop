@@ -2,15 +2,15 @@
 
 {% block show_content %}
 
-<div style ="padding: auto; margin: auto; ">
+<div style ="padding: 2vw; margin: 2vw; ">
     <div class="row">
         {% for item in item_list %}
             {% if item %}
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style ="padding: auto; margin: auto; ">
                     <div id = "item">
-                        <h2>{{ item.name }}</h2>
+                        <h3>{{ item.name }}</h3>
                         <img src="{{ item.image.url }}" height="50%" width="50%">
-                        <h2>{{ item.price }} € </h2>
+                        <h3>{{ item.price }} € </h3>
                         <a href="/showcase/{{item.id}}" class="btn btn-default" > Details </a>
                     </div>
                 </div>
