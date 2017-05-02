@@ -63,15 +63,16 @@ class LoginFormView(View):
 class LogoutView(View):
     def get(self, request):
 
-        # print(request.session.get('cart'))
-        # print(request.session['cart'])
-        # if request.session['cart'] :
-        #     print ('if')
-        # else:
-        #     print('else')
+        print(request.session.get('cart'))
+        print(request.session['cart'])
+        if request.session['cart'] :
+            print ('if')
+        else:
+           print('else')
 
 
-        # request.session['cart'] = ()
-        # request.session.modified = True
+        request.session['cart'] = ()
+        request.session.modified = True
+        
         logout(request)
         return redirect('home:index')

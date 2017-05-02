@@ -8,12 +8,7 @@ def content_view(request):
     items_in_cart = []
     total_price = 0
     message = None
-    context = {
-        'Item':model,
-        'items_in_cart': items_in_cart,
-        'total_price': total_price,
-        'message':message,
-    }
+
 
     try:
         cart = request.session.get('cart')
@@ -23,6 +18,7 @@ def content_view(request):
             for key in cart:
                 query = model.objects.get(pk = key)
                 total_price += query.price
+                print(total_price)
                 items_in_cart.append(query)
     except:
         print("Cart does not exist")
@@ -35,6 +31,16 @@ def content_view(request):
     elif request.method == 'POST':
         print('post')
         message = 'Thank you for shopping for us'
+        cart = ()
+        request.session.modified = True
+        items_in_cart = []
+
+    context = {
+        'Item':model,
+        'items_in_cart': items_in_cart,
+        'total_price': total_price,
+        'message':message,
+    }
 
     print(context['total_price'])
     return render(request, template_name, context)
